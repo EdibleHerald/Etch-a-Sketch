@@ -12,3 +12,19 @@
 // Create a popup that asks the user how many squares per side
 // Should generate a new grid with the same space as the 16x16
 // NOTE: Set MAXIMUM as 100(100x100)
+
+
+
+
+
+// Create a function that makes a 16x16 square div grid 
+
+function createCanvas(length){
+    let container = document.querySelector(".container");
+    let div = document.createElement("div");
+
+    for(let i=0;i<length;i++){
+        
+    }
+}
+createCanvas();

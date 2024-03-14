@@ -1,0 +1,17 @@
+.container{
+    margin: 0 auto;
+    background-color: red;
+    width:800px;
+    height:800px;
+}
+
+.header{
+    margin: 0 auto;
+    margin-bottom:20px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:3rem;
+    border: 3px solid black;
+    width:fit-content;
+    background-color: aqua;
+}
