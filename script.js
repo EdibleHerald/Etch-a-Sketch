@@ -19,12 +19,41 @@
 
 // Create a function that makes a 16x16 square div grid 
 
-function createCanvas(length){
+function createCanvas(sqPerSide){
+    
     let container = document.querySelector(".container");
-    let div = document.createElement("div");
+    sqPerSide *=sqPerSide;
 
-    for(let i=0;i<length;i++){
-        
+    widthAndHeight = determineHeightWidth(sqPerSide);
+
+    for(let i=0;i<sqPerSide;i++){
+
+        let div = document.createElement("div");
+
+        div.classList.add("canvas");
+
+        div.style.width = `${widthAndHeight}px`;
+        div.style.height = `${widthAndHeight}px`;
+
+        container.appendChild(div);
     }
+    
 }
-createCanvas();
+createCanvas(16);
+// Tricky siutation here, I need to create a value using the amount of squares per side
+// to determine the length/width of the divs
+//
+// Here's what we need:
+// area of containerDiv : 800 x 800 = 640,000
+// Width and Height of each square : sqrt(640,000/(sqPerSide*sqPerSide))
+
+// Lets make a seperate function to handle these calculations
+
+function determineHeightWidth(sqTotal){
+    let containerDivArea = 640000;
+    
+
+    widthAndHeight = Math.sqrt((containerDivArea/sqTotal));
+
+    return widthAndHeight;
+}
