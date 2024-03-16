@@ -1,0 +1,26 @@
+Problem: smaller divs that are supposed to fill the canvas are larger than what can fit in the container div.
+This causes overflow and the divs leak out of the container.
+
+lets try 31x31 and run the calculations by hand:
+
+What happens?
+
+Well:
+
+containerDiv height/width is 800 px
+the area is 640,000 
+
+it goes through determineHeightWidth(sqTotal)
+
+sqTotal is 31x31 or 961 (Amount of squares in the canvas)
+
+widthAndHeight is equal to Math.sqrt(containerDivArea/sqTotal)
+
+in this case it is Math.sqrt(640,000/961)
+
+the result is 25.806451612
+
+IMPORTANT NOTE: When checking the dimensions of each div, they turn out to be 27.8 and not as the expected 25.8
+
+Conclusion:
+I didn't take notice of the border that I added to each div. I didnt notice until I used google's tools that very clearly showed me the errors of my way

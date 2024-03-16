@@ -20,13 +20,20 @@
 // Create a function that makes a 16x16 square div grid 
 
 function createCanvas(sqPerSide){
-    
+    // Delete previous divs before creating new ones
+    clearCanvas();
+
+
     let container = document.querySelector(".container");
-    sqPerSide *=sqPerSide;
+    sqTotal =sqPerSide*sqPerSide;
 
-    widthAndHeight = determineHeightWidth(sqPerSide);
+    // New issue: divs must actually fit container or else they leak out
+    // solution: I added a border that adds on 2 pixels horiziontally and vertically, explaining the error;
+    // NOTE: adjust accordingly if deciding to remove border.
 
-    for(let i=0;i<sqPerSide;i++){
+    widthAndHeight = determineHeightWidth(sqTotal)-2;
+    
+    for(let i=0;i<sqTotal;i++){
 
         let div = document.createElement("div");
 
@@ -39,7 +46,7 @@ function createCanvas(sqPerSide){
     }
     
 }
-createCanvas(16);
+
 // Tricky siutation here, I need to create a value using the amount of squares per side
 // to determine the length/width of the divs
 //
@@ -50,10 +57,39 @@ createCanvas(16);
 // Lets make a seperate function to handle these calculations
 
 function determineHeightWidth(sqTotal){
-    let containerDivArea = 640000;
+    let containerDiv = document.querySelector(".container");
+    let width = containerDiv.clientWidth;
+    let height = containerDiv.clientHeight;
+
+    let containerDivArea = width * height;
     
 
     widthAndHeight = Math.sqrt((containerDivArea/sqTotal));
 
     return widthAndHeight;
 }
+
+// Now we need a function that actually asks the user to input 
+// the size of the canvas
+
+function canvasSize(){
+   let input = document.getElementById("size");
+   let inputValue = input.value;
+   
+   createCanvas(inputValue);
+}
+
+// Problem: The createCanvas() function only creates, it 
+// does NOT dispose of older divs and I want it to automatically
+// create canvas based on input 
+
+// Solution: Create a function that clears child divs 
+// that runs BEFORE any new divs are created.
+
+function clearCanvas(){
+    let containerDiv = document.querySelector(".container");
+    containerDiv.innerHTML = '';
+}
+
+
+

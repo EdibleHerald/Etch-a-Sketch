@@ -3,9 +3,8 @@
     flex-wrap:wrap;
     margin: 0 auto;
     background-color: red;
-    width:800px;
-    height:800px;
-
+    width:50rem;
+    height:50rem;
 }
 
 .header{
@@ -19,7 +18,12 @@
     background-color: aqua;
 }
 
+.sizeSelector{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
 .canvas{
-    
-    background-color: aqua;
+    border: 1px solid black;
 }
