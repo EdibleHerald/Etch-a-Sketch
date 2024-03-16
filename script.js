@@ -42,6 +42,11 @@ function createCanvas(sqPerSide){
         div.style.width = `${widthAndHeight}px`;
         div.style.height = `${widthAndHeight}px`;
 
+        div.addEventListener("mouseover", function (){
+            let hex ="#" + Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');
+            div.style.backgroundColor = hex; //Enter color to choose
+        });
+
         container.appendChild(div);
     }
     
@@ -96,6 +101,3 @@ function clearCanvas(){
     let containerDiv = document.querySelector(".container");
     containerDiv.innerHTML = '';
 }
-
-
-
