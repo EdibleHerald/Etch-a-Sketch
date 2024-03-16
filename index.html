@@ -9,10 +9,11 @@
 </head>
 <body>
     <h1 class="header">Etch-a-Sketch!</h1>
-    <form class="sizeSelector" oninput="canvasSize()">
+    <form class="sizeSelector" oninput="canvasSize()" >
         <label for="size">How many squares per side?</label>
         <input type="number" id="size">
     </form>
+    <p class = "error"></p>
 
     <!-- Below is the one container that will hold all else -->
     <div class="container"></div>

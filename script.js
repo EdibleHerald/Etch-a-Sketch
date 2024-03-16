@@ -74,9 +74,15 @@ function determineHeightWidth(sqTotal){
 
 function canvasSize(){
    let input = document.getElementById("size");
-   let inputValue = input.value;
-   
-   createCanvas(inputValue);
+   let inputValue = parseInt(input.value);
+   let errorP = document.querySelector(".error");
+
+   if(inputValue > 100){
+    errorP.textContent = "Error: Please enter a number thats <= 100"
+   }else{
+    createCanvas(inputValue);
+    errorP.textContent = "";
+   }
 }
 
 // Problem: The createCanvas() function only creates, it 
